@@ -1,6 +1,7 @@
 {
   "name": "react-web-app-trustly-sample",
   "version": "0.1.0",
+  "homepage": "https://renatodelpupo.github.io/trustly-webview-example-copy/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.4",
