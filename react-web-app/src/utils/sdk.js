@@ -11,21 +11,14 @@ export const exposeEnvVariables = () => {
     SERVER_URL:
       (process.env && process.env.REACT_APP_TRUSTLY_SERVER_URL) ||
       urlSearchParams.get('serverUrl'),
-    SUBDOMAIN:
-      (process.env &&
-        process.env.REACT_APP_TRUSTLY_SUBDOMAIN &&
-        `${process.env.REACT_APP_TRUSTLY_SUBDOMAIN}.`) ||
-      (urlSearchParams.get('subdomain') &&
-        `${urlSearchParams.get('subdomain')}.`) ||
-      '',
   };
 };
 
 export const loadScript = (callback) => {
-  const { ACCESS_ID, SUBDOMAIN } = window.env;
+  const { ACCESS_ID } = window.env;
   const sdkScript = document.createElement('script');
   sdkScript.type = 'text/javascript';
-  sdkScript.src = `https://${SUBDOMAIN}trustly.one/start/scripts/trustly.js?accessId=${ACCESS_ID}`;
+  sdkScript.src = `https://sandbox.trustly.one/start/scripts/trustly.js?accessId=${ACCESS_ID}`;
   sdkScript.onload = callback;
   document.head.appendChild(sdkScript);
 };
