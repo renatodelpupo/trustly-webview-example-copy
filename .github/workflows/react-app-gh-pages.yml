@@ -45,7 +45,7 @@ jobs:
       - name: Set Homepage
         run: |
           npm install -g json
-          json -I -f package.json -e 'this.homepage="https://renatodelpupo.github.io/trustly-webview-example-copy/"'
+          json -I -f ${{ env.PROJECT_FOLDER }}/package.json -e 'this.homepage="https://renatodelpupo.github.io/trustly-webview-example-copy/"'
 
       - name: Install dependencies
         run: npm install
