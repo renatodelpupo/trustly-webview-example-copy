@@ -42,6 +42,20 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
+      - name: Set Homepage
+        run: |
+          const fs = require('fs');
+          const packageJsonPath = '${{ env.PROJECT_FOLDER }}/package.json';
+
+          // Load the package.json file
+          const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
+
+          // Update the homepage field
+          packageJson.homepage = 'https://renatodelpupo.github.io/trustly-webview-example-copy/';
+
+          // Save the modified package.json file
+          fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
+
       - name: Install dependencies
         run: npm install
         working-directory: ${{ env.PROJECT_FOLDER }}
