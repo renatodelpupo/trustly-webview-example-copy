@@ -1,4 +1,4 @@
-This web app simply renders a "Pay with Trustly" button that is used to launch the [Trustly Lightbox](developers.trustly.com/payments/sdk). It is meant to be used together with this iOS Sample app to test and demonstrate the use of a Webview to integrate Trustly with a mobile app.
+This web app renders an example of the Select Bank Widget and a button that launches the Lightbox directly. It is meant to be used with this repository's Android and iOS example apps to test and demonstrate the use of a WebView to integrate Trustly with a mobile app.
 
 # Getting Started
 
@@ -6,40 +6,32 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 1. Install dependencies
 
-### `npm install`
+`npm install`
 
 2. Add your Trustly sandbox credentials
 
-Copy the `.env.sample` file to a new file `.env.local` and add your `AccessID` and `MerchantID`.
+Copy the `.env.sample` file to a new `.env.local` file and fill out your environment variables.
 
-```
-REACT_APP_TRUSTLY_ACCESS_ID=YOUR_ACCESS_ID
-REACT_APP_TRUSTLY_MERCHANT_ID=YOUR_MERCHANT_ID
-```
+Alternatively, you can pass these data later using query parameters, via camelCase keys. Example:
 
-Your `AccessID` will now be included in the `./public/index.html` file to load the Trustly.js library and both properties will be used in the [establish](https://developers.trustly.com/payments/docs/establish-data) object.
+`?accessId=YOUR_ACCESS_ID&merchantId=YOUR_MERCHANT_ID`
 
-```
-./public/index.html
-<script src="https://sandbox.trustly.one/start/scripts/trustly.js?accessId={YOUR_ACCESS_ID}"></script>
-```
+Both ways to fill the data work the same.
 
-```
-./src/app.js
+3. Run
 
-const ACCESS_ID = 'YOUR_ACCESS_ID';
-const MERCHANT_ID = 'YOUR_MERCHANT_ID';
-const serverURL = 'YOUR_SERVER_URL';
-
-function App() {
-  ...
-```
-Then start it up:
-
-#### `npm start`
+`npm start`
 
 This command runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
+
+# Live Example
+
+Visit https://renatodelpupo.github.io/trustly-webview-example-copy/ to see the project live.
+
+Important: You'll need to pass environment variables using query parameters. Check the `.env.sample` file to learn about the required properties. Example:
+
+`https://renatodelpupo.github.io/trustly-webview-example-copy/?accessId=YOUR_ACCESS_ID&merchantId=YOUR_MERCHANT_ID`
