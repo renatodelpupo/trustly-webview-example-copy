@@ -11,6 +11,9 @@ export const exposeEnvVariables = () => {
     SERVER_URL:
       (process.env && process.env.REACT_APP_TRUSTLY_SERVER_URL) ||
       urlSearchParams.get('serverUrl'),
+    SIGNATURE_API_URL:
+      (process.env && process.env.REACT_APP_TRUSTLY_SIGNATURE_API_URL) ||
+      urlSearchParams.get('signatureApiUrl'),
   };
 };
 
