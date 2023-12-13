@@ -12,11 +12,11 @@ function App() {
   const TrustlyOptions = {
     closeButton: false,
     dragAndDrop: true,
-    widgetContainerId: "widget"
+    widgetContainerId: 'widget',
   };
 
   const returnEstablishData = () => {
-    let lightboxRedirectURL = serverURL ? serverURL : "#";
+    let lightboxRedirectURL = serverURL ? serverURL : '#';
     let data = {
       accessId: ACCESS_ID,
       // requestSignature: REQUEST_SIGNATURE,
@@ -27,29 +27,28 @@ function App() {
       paymentType: 'Deferred',
       returnUrl: `${lightboxRedirectURL}/return`,
       cancelUrl: `${lightboxRedirectURL}/cancel`,
-      metadata: {}  
+      metadata: {},
     };
     // check query params for mobile
-    if (params.get("integrationContext") && params.get("urlScheme")) {
-			if (!data.metadata) data.metadata = {};
-      data.metadata.urlScheme = `${params.get("urlScheme")}://`;
-      data.metadata.integrationContext = params.get("integrationContext");
+    if (params.get('integrationContext') && params.get('urlScheme')) {
+      if (!data.metadata) data.metadata = {};
+      data.metadata.urlScheme = `${params.get('urlScheme')}://`;
+      data.metadata.integrationContext = params.get('integrationContext');
     }
     return data;
   };
 
   return (
     <div className='App'>
-        <HeaderBar />
-        <SelectBankCard
-          establishData={returnEstablishData} 
-          TrustlyOptions={TrustlyOptions}
-        >
-        </SelectBankCard>
-        <PayCard 
-          establishData={returnEstablishData} 
-          TrustlyOptions={TrustlyOptions}
-        ></PayCard>
+      <HeaderBar />
+      <SelectBankCard
+        establishData={returnEstablishData}
+        TrustlyOptions={TrustlyOptions}
+      ></SelectBankCard>
+      <PayCard
+        establishData={returnEstablishData}
+        TrustlyOptions={TrustlyOptions}
+      ></PayCard>
     </div>
   );
 }
