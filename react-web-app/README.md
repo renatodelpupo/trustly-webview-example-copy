@@ -32,6 +32,6 @@ You may also see any lint errors in the console.
 
 Visit https://renatodelpupo.github.io/trustly-webview-example-copy/ to see the project live.
 
-Important: You'll need to pass environment variables using query parameters. Check the `.env.sample` file to learn about the required properties. Example:
+Important: You'll need to pass your sandbox environment variables using query parameters. Check the `.env.sample` file to learn about the required properties. Example:
 
 `https://renatodelpupo.github.io/trustly-webview-example-copy/?accessId=YOUR_ACCESS_ID&merchantId=YOUR_MERCHANT_ID`
